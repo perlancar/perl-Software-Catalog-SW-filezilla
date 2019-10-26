@@ -13,14 +13,11 @@ with 'Software::Catalog::Role::Software';
 
 use Software::Catalog::Util qw(extract_from_url);
 
-sub meta {
-    return {
-        summary => "Cross-platform GUI FTP/SFTP client",
-        homepage_url => "https://filezilla-project.org",
-    };
-}
+sub summary { "Cross-platform GUI FTP/SFTP client" }
 
-sub get_latest_version {
+sub homepage_url { "https://filezilla-project.org" }
+
+sub latest_version {
     my ($self, %args) = @_;
 
     extract_from_url(
@@ -37,7 +34,7 @@ sub canon2native_arch_map {
     },
 }
 
-sub get_download_url {
+sub download_url {
     my ($self, %args) = @_;
 
     # XXX version, language
@@ -47,7 +44,7 @@ sub get_download_url {
     );
 }
 
-sub get_archive_info {
+sub archive_info {
     my ($self, %args) = @_;
     [200, "OK", {
         programs => [
